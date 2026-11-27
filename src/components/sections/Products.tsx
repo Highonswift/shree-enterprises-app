@@ -9,17 +9,17 @@ import type { SiteContent } from "@/types/website";
 interface Props { content: SiteContent["products"]; form: SiteContent["form"]; ui: SiteContent["ui"] }
 
 export function Products({ content, form, ui }: Props) {
-  const [openName, setOpenName] = useState<string | null>(null);
-  const open = content.items.find((product) => product.name === openName);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const open = openIndex === null ? undefined : content.items[openIndex];
 
   return (
-    <section className="panel reveal" id="products">
+    <section className="panel reveal" id="products" {...content.edit}>
       <SectionHeading icon={headingPaths.products} title={content.title} />
       <p className="lede">{content.subtitle}</p>
       <div className="prod-grid">
-        {content.items.map((product) => (
-          <button key={product.name} type="button" className={product === open ? "prod on" : "prod"} aria-expanded={product === open}
-            onClick={() => setOpenName(product === open ? null : product.name)}>
+        {content.items.map((product, i) => (
+          <button key={i} {...product.edit} type="button" className={product === open ? "prod on" : "prod"} aria-expanded={product === open}
+            onClick={() => setOpenIndex(product === open ? null : i)}>
             <div className="pi">
               {/* Plain img keeps the original intrinsic sizing. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -34,7 +34,7 @@ export function Products({ content, form, ui }: Props) {
         {open && (
           <>
             <h5>{open.name}</h5>
-            <div className="pills">{open.items.map((item) => <span key={item}>{item}</span>)}</div>
+            <div className="pills">{open.items.map((item, i) => <span key={i}>{item}</span>)}</div>
             <a href="#contact" className="btn btn-lime" style={{ marginTop: 14 }}
               onClick={() => prefillEnquiry({ division: "water", scope: form.productScope, message: `${form.productMessage}${open.name} — ` })}>
               {ui.enquireAbout}{open.name.toLowerCase()} →

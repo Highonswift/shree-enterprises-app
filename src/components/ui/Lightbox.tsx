@@ -33,7 +33,7 @@ export function Lightbox({ item, closeLabel, onClose }: { item: LightboxItem | n
       onClick={(event) => { event.stopPropagation(); if (event.target === event.currentTarget) onClose(); }}>
       <button ref={closeRef} type="button" className="x" aria-label={closeLabel} onClick={onClose}>✕</button>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={item.src} alt={item.title} />
+      {item.src && <img src={item.src} alt={item.title} />}
       <div className="cap">
         <h4>{item.title}</h4>
         <p>{item.text}</p>

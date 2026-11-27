@@ -15,13 +15,13 @@ export function Clients({ content, allLabel }: { content: SiteContent["clients"]
   const visible = content.items.filter((client) => selected === allLabel || client.category === selected);
 
   return (
-    <section className="panel reveal" id="clients">
+    <section className="panel reveal" id="clients" {...content.edit}>
       <SectionHeading icon={headingPaths.clients} title={content.title} />
       <p className="lede">{content.subtitle}</p>
       <FilterChips options={options} selected={selected} onSelect={setChoice} />
       <div className="clients">
-        {visible.map((client) => (
-          <div key={`${selected}-${client.name}`} className="client fade">
+        {visible.map((client, i) => (
+          <div key={`${selected}-${i}`} className="client fade" {...client.edit}>
             {client.logo ? (
               // eslint-disable-next-line @next/next/no-img-element
               <div className="logoimg"><img src={client.logo} alt="" /></div>

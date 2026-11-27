@@ -7,7 +7,9 @@ import type { SectionId } from "@/types/website";
 
 const ids = Object.keys(tabPaths) as SectionId[];
 
-export function Tabs({ labels }: { labels: Record<SectionId, string> }) {
+/** `hidden` is a comma-separated list of hidden section ids. */
+export function Tabs({ labels, hidden }: { labels: Record<SectionId, string>; hidden: string }) {
+  const shown = ids.filter((id) => !hidden.split(",").includes(id));
   const [current, setCurrent] = useState<SectionId>("home");
   const row = useRef<HTMLDivElement>(null);
 
@@ -15,17 +17,18 @@ export function Tabs({ labels }: { labels: Record<SectionId, string> }) {
     const spy = () => {
       let next: SectionId = "home";
       const y = window.scrollY + 170;
-      for (const id of ids) {
+      const visible = ids.filter((id) => !hidden.split(",").includes(id));
+      for (const id of visible) {
         const section = document.getElementById(id);
         if (id !== "home" && section && section.offsetTop <= y) next = id;
       }
-      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) next = "contact";
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) next = visible[visible.length - 1];
       setCurrent(next);
     };
     spy();
     window.addEventListener("scroll", spy, { passive: true });
     return () => window.removeEventListener("scroll", spy);
-  }, []);
+  }, [hidden]);
 
   // Keep the active tab visible when the row is scrollable.
   useEffect(() => {
@@ -43,7 +46,7 @@ export function Tabs({ labels }: { labels: Record<SectionId, string> }) {
   return (
     <div className="tabs">
       <div className="wrap" ref={row}>
-        {ids.map((id) => (
+        {shown.map((id) => (
           <a key={id} data-tab={id} href={`#${id}`} className={id === current ? "tab on" : "tab"}
             aria-current={id === current ? "location" : undefined}
             onClick={(event) => { event.preventDefault(); goTo(id); }}>

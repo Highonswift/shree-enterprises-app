@@ -30,8 +30,10 @@ export function EnquiryForm({ contact, form }: Props) {
     if (enquiry) output.current?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "nearest" });
   }, [enquiry]);
 
+  // Follows the option list if editors change it during live preview.
+  const scope = form.scopes.includes(values.scope) ? values.scope : (form.scopes[0] ?? "");
   const field = (key: keyof typeof values) => ({
-    value: values[key],
+    value: key === "scope" ? scope : values[key],
     onChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
       const { value } = e.target;
       setValues((current) => ({ ...current, [key]: value }));
@@ -58,7 +60,7 @@ export function EnquiryForm({ contact, form }: Props) {
       `${label.contact}: ${values.phone}`,
       `${label.location}: ${values.location || "-"}`,
       `${label.capacity}: ${values.capacity || "-"}`,
-      `${label.scope}: ${values.scope}`,
+      `${label.scope}: ${scope}`,
       "",
       `${label.details}:`,
       values.message || "-",
@@ -80,7 +82,7 @@ export function EnquiryForm({ contact, form }: Props) {
   };
 
   return (
-    <form noValidate onSubmit={submit}>
+    <form noValidate onSubmit={submit} {...form.edit}>
       <h3 style={{ color: "var(--color-primary)", fontSize: 24, marginBottom: 4 }}>{contact.formTitle}</h3>
       <p className="lede" style={{ marginBottom: 18 }}>{contact.formSubtitle}</p>
       <div className="row">
@@ -114,7 +116,7 @@ export function EnquiryForm({ contact, form }: Props) {
         <div>
           <label htmlFor="fScope">{form.labels.scope}</label>
           <select id="fScope" {...field("scope")}>
-            {form.scopes.map((scope) => <option key={scope}>{scope}</option>)}
+            {form.scopes.map((option, i) => <option key={i}>{option}</option>)}
           </select>
         </div>
       </div>

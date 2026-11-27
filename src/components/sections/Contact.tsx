@@ -8,24 +8,24 @@ export function Contact({ contact, form }: Pick<SiteContent, "contact" | "form">
     { heading: contact.waterHeading, email: contact.waterEmail, note: contact.waterNote },
   ];
   return (
-    <section className="panel reveal" id="contact">
+    <section className="panel reveal" id="contact" {...contact.edit}>
       <div className="enq">
         <div className="enq-side">
           <div>
             <div className="kicker" style={{ color: "var(--color-accent)" }}>{contact.kicker}</div>
             <h3 style={{ marginTop: 6 }}>{contact.title}</h3>
           </div>
-          {emails.map((block) => (
-            <div key={block.heading} className="blk">
+          {emails.map((block, i) => (
+            <div key={i} className="blk">
               <b>{block.heading}</b>
               <a href={`mailto:${block.email}`}>{block.email}</a>
               <p>{block.note}</p>
             </div>
           ))}
           <div className="blk">
-            <b>{contact.person} · {contact.role}</b>
+            <b>{[contact.person, contact.role].filter(Boolean).join(" · ")}</b>
             <div className="ph-row">
-              {contact.phones.map((phone) => <a key={phone} href={telHref(phone)}>{phone}</a>)}
+              {contact.phones.map((phone, i) => <a key={i} href={telHref(phone)}>{phone}</a>)}
             </div>
           </div>
           <div className="blk">

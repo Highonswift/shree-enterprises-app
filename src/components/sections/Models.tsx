@@ -20,17 +20,17 @@ export function Models({ content, ui }: { content: SiteContent["models"]; ui: Si
   const visible = content.items.filter((model) => selected === ui.allFilter || model.category === selected);
 
   return (
-    <section className="panel reveal" id="models">
+    <section className="panel reveal" id="models" {...content.edit}>
       <SectionHeading icon={headingPaths.models} title={content.title}
         action={<PresetLink division="water" className="btn btn-ghost">{content.button}</PresetLink>} />
       <p className="lede">{content.subtitle}</p>
       <FilterChips options={options} selected={selected} onSelect={setChoice} />
       <div className="cards">
-        {visible.map((model) => (
-          <article key={`${selected}-${model.title}`} className="card fade" role="button" tabIndex={0} aria-haspopup="dialog"
+        {visible.map((model, i) => (
+          <article key={`${selected}-${i}`} {...model.edit} className="card fade" role="button" tabIndex={0} aria-haspopup="dialog"
             onClick={() => open(model)}
             onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(model); } }}>
-            <div className="im" style={{ backgroundImage: cssUrl(model.image) }} />
+            <div className="im" style={model.image ? { backgroundImage: cssUrl(model.image) } : undefined} />
             <div className="bd">
               <h4>{model.title}</h4>
               {model.tag && <div><span className="mini lime">{model.tag}</span></div>}

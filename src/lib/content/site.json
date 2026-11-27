@@ -23,42 +23,46 @@
     ],
     "promptsWater": []
   },
-  "ticker": [
-    "Fish Meal Plants",
-    "Fish Oil Purification",
-    "ETP",
-    "STP",
-    "WTP",
-    "Ultrafiltration",
-    "Reverse Osmosis",
-    "Desalination",
-    "Biogas & UASB",
-    "Odour Control",
-    "Heat Recovery",
-    "PLC / SCADA",
-    "Revamping",
-    "AMC & Spares"
-  ],
-  "promos": [
-    {
-      "tag": "EPC Turnkey Projects",
-      "title": "Fish Meal & Fish Oil Plants, Concept to Commissioning",
-      "text": "Process, utilities, effluent treatment, biogas and odour control in one coordinated scope.",
-      "button": "Explore EPC",
-      "link": "#fishmeal",
-      "image": "/images/plant-600tpd.jpg",
-      "color": "var(--color-promo-epc)"
-    },
-    {
-      "tag": "Water & Wastewater",
-      "title": "ETP · STP · WTP · UF · RO · Desalination",
-      "text": "Design, installation, revamping and service support for plants up to 1 MLD.",
-      "button": "Explore Water",
-      "link": "#models",
-      "image": "/images/desal.jpg",
-      "color": "var(--color-promo-water)"
-    }
-  ],
+  "ticker": {
+    "items": [
+      "Fish Meal Plants",
+      "Fish Oil Purification",
+      "ETP",
+      "STP",
+      "WTP",
+      "Ultrafiltration",
+      "Reverse Osmosis",
+      "Desalination",
+      "Biogas & UASB",
+      "Odour Control",
+      "Heat Recovery",
+      "PLC / SCADA",
+      "Revamping",
+      "AMC & Spares"
+    ]
+  },
+  "promos": {
+    "items": [
+      {
+        "tag": "EPC Turnkey Projects",
+        "title": "Fish Meal & Fish Oil Plants, Concept to Commissioning",
+        "text": "Process, utilities, effluent treatment, biogas and odour control in one coordinated scope.",
+        "button": "Explore EPC",
+        "link": "#fishmeal",
+        "image": "/images/plant-600tpd.jpg",
+        "color": "var(--color-promo-epc)"
+      },
+      {
+        "tag": "Water & Wastewater",
+        "title": "ETP · STP · WTP · UF · RO · Desalination",
+        "text": "Design, installation, revamping and service support for plants up to 1 MLD.",
+        "button": "Explore Water",
+        "link": "#models",
+        "image": "/images/desal.jpg",
+        "color": "var(--color-promo-water)"
+      }
+    ]
+  },
   "capabilities": {
     "title": "Our Capabilities",
     "subtitle": "One integrated partner for multidisciplinary industrial project delivery.",

@@ -5,10 +5,10 @@ import { FishMealFigure } from "./FishMealFigure";
 
 export function FishMeal({ content, closeLabel }: { content: SiteContent["fishmeal"]; closeLabel: string }) {
   return (
-    <section className="panel reveal" id="fishmeal">
+    <section className="panel reveal" id="fishmeal" {...content.edit}>
       <div className="feature">
         <div>
-          <FishMealFigure src={content.image} title={content.title} caption={content.caption} closeLabel={closeLabel} />
+          {content.image && <FishMealFigure src={content.image} title={content.title} caption={content.caption} closeLabel={closeLabel} />}
           <figcaption>{content.caption}</figcaption>
         </div>
         <div>
@@ -16,8 +16,8 @@ export function FishMeal({ content, closeLabel }: { content: SiteContent["fishme
           <h2 style={{ fontSize: 30, color: "var(--color-primary)", lineHeight: 1.15, margin: "8px 0 10px" }}>{content.title}</h2>
           <p style={{ color: "var(--color-text-muted)" }}>{content.text}</p>
           <div className="stats">
-            {content.stats.map((stat) => (
-              <div key={stat.label} className="stat">
+            {content.stats.map((stat, i) => (
+              <div key={i} className="stat" {...stat.edit}>
                 <div className="v">{stat.value}<small>{stat.unit}</small></div>
                 <div className="l">{stat.label}</div>
               </div>

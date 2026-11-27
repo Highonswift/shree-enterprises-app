@@ -18,10 +18,12 @@ export function FloatingActions({ whatsapp, ui }: { whatsapp: string; ui: SiteCo
 
   return (
     <>
-      <a className="wa" href={whatsappHref(whatsapp)} target="_blank" rel="noopener noreferrer" aria-label={ui.whatsappLabel}>
-        <WhatsAppIcon />
-        <span className="t"><small>{ui.whatsappSmall}</small><b>{ui.whatsappLabel}</b></span>
-      </a>
+      {/\d/.test(whatsapp) && (
+        <a className="wa" href={whatsappHref(whatsapp)} target="_blank" rel="noopener noreferrer" aria-label={ui.whatsappLabel}>
+          <WhatsAppIcon />
+          <span className="t"><small>{ui.whatsappSmall}</small><b>{ui.whatsappLabel}</b></span>
+        </a>
+      )}
       <button type="button" className={showTop ? "top show" : "top"} aria-label={ui.backToTop}
         tabIndex={showTop ? 0 : -1}
         onClick={() => window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" })}>

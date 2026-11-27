@@ -13,8 +13,8 @@ export function RevealObserver() {
       }),
       { threshold: 0.08 },
     );
-    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+    document.querySelectorAll(".reveal:not(.in)").forEach((element) => observer.observe(element));
     return () => observer.disconnect();
-  }, []);
+  }); // after every render, so sections added during live preview are revealed too
   return null;
 }

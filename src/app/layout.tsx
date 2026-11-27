@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow } from "next/font/google";
-import { getContent } from "@/lib/content";
+import { getSite } from "@/lib/storyblok/queries";
 import "./globals.css";
 
 const barlow = Barlow({
@@ -17,12 +17,15 @@ const favicon = `data:image/svg+xml,${encodeURIComponent(
   `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='${PRIMARY}'/><text x='14' y='46' font-family='Arial' font-weight='800' font-size='40' fill='white'>S</text><rect x='42' y='16' width='8' height='32' rx='2' fill='${ACCENT}'/></svg>`,
 )}`;
 
-export function generateMetadata(): Metadata {
-  const { brand, seo } = getContent();
+export async function generateMetadata(): Promise<Metadata> {
+  const { brand, seo } = (await getSite()).content;
+  // Vercel provides the site's address, needed to make the sharing image URL absolute.
+  const host = process.env.VERCEL_PROJECT_PRODUCTION_URL;
   return {
+    metadataBase: host ? new URL(`https://${host}`) : undefined,
     title: brand.pageTitle,
     description: seo.description,
-    openGraph: { title: seo.ogTitle, description: seo.ogDescription, images: [seo.ogImage] },
+    openGraph: { title: seo.ogTitle, description: seo.ogDescription, images: seo.ogImage ? [seo.ogImage] : [] },
     icons: { icon: favicon },
     appleWebApp: { capable: true, statusBarStyle: "black-translucent" },
   };

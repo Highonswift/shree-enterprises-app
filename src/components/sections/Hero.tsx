@@ -42,7 +42,8 @@ export function Hero({ hero, phone, ui }: { hero: SiteContent["hero"]; phone: st
   const shade = (alpha: number) => `color-mix(in srgb, var(--color-primary-deep) ${alpha}%, transparent)`;
 
   return (
-    <section className="hero" style={{ backgroundImage: `linear-gradient(180deg, ${shade(55)}, ${shade(78)}), ${cssUrl(hero.image)}` }}>
+    <section className="hero" {...hero.edit}
+      style={{ backgroundImage: [`linear-gradient(180deg, ${shade(55)}, ${shade(78)})`, hero.image && cssUrl(hero.image)].filter(Boolean).join(", ") }}>
       <div className="hero-in">
         <div className="hello"><span>{hero.greeting}</span> <em>{hero.greetingHighlight}</em></div>
         <h1>{hero.title}</h1>
@@ -61,10 +62,12 @@ export function Hero({ hero, phone, ui }: { hero: SiteContent["hero"]; phone: st
               ))}
             </div>
             <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-              <a href={telHref(phone)} className="btn btn-ghost light" style={{ fontSize: 14, padding: "9px 14px" }}>
-                <PhoneIcon />
-                {ui.talk}
-              </a>
+              {phone && (
+                <a href={telHref(phone)} className="btn btn-ghost light" style={{ fontSize: 14, padding: "9px 14px" }}>
+                  <PhoneIcon />
+                  {ui.talk}
+                </a>
+              )}
               <button type="button" className="send" aria-label={ui.send} onClick={send}><SendIcon /></button>
             </div>
           </div>

@@ -3,25 +3,25 @@ import { Logo } from "./Logo";
 
 export function Footer({ brand, footer, contact }: Pick<SiteContent, "brand" | "footer" | "contact">) {
   return (
-    <footer>
+    <footer {...footer.edit}>
       <div className="wrap">
         <div className="fgrid">
           <div>
             <Logo name={brand.name} suffix={brand.suffix} />
             <p style={{ marginTop: 12, fontSize: 15, maxWidth: 320 }}>{footer.about}</p>
           </div>
-          {footer.columns.map((column) => (
-            <div key={column.heading}>
+          {footer.columns.map((column, i) => (
+            <div key={i} {...column.edit}>
               <h6>{column.heading}</h6>
               <ul>
-                {column.links.map((item) => <li key={item.label}><a href={item.link}>{item.label}</a></li>)}
+                {column.links.map((item, j) => <li key={j} {...item.edit}><a href={item.link}>{item.label}</a></li>)}
               </ul>
             </div>
           ))}
           <div>
             <h6>{footer.contactHeading}</h6>
             <ul>
-              {[...contact.phones, contact.city].map((line) => <li key={line}>{line}</li>)}
+              {[...contact.phones, contact.city].filter(Boolean).map((line, i) => <li key={i}>{line}</li>)}
             </ul>
           </div>
         </div>

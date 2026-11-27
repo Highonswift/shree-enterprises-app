@@ -5,12 +5,12 @@ import type { SiteContent } from "@/types/website";
 
 export function Execution({ content }: { content: SiteContent["method"] }) {
   return (
-    <section className="panel reveal" id="execution">
+    <section className="panel reveal" id="execution" {...content.edit}>
       <SectionHeading icon={headingPaths.execution} title={content.title} />
       <p className="lede">{content.subtitle}</p>
       <div className="method">
         {content.steps.map((step, i) => (
-          <div key={step.title} className="ms">
+          <div key={i} className="ms" {...step.edit}>
             <div className="dot">{pad2(i + 1)}</div>
             <h5>{step.title}</h5>
             <p>{step.text}</p>
