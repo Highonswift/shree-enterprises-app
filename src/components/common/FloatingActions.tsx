@@ -21,7 +21,7 @@ export function FloatingActions({ whatsapp, ui }: { whatsapp: string; ui: SiteCo
       {/\d/.test(whatsapp) && (
         <a className="wa" href={whatsappHref(whatsapp)} target="_blank" rel="noopener noreferrer" aria-label={ui.whatsappLabel}>
           <WhatsAppIcon />
-          <span className="t"><small>{ui.whatsappSmall}</small><b>{ui.whatsappLabel}</b></span>
+          <span className="t"><b>{ui.whatsappLabel}</b></span>
         </a>
       )}
       <button type="button" className={showTop ? "top show" : "top"} aria-label={ui.backToTop}
