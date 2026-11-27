@@ -150,17 +150,6 @@ section[id],main[id]{scroll-margin-top:130px}
 .hello em{font-style:normal;color:var(--color-accent)}
 .hero h1{font-size:46px;line-height:1.12;font-weight:700;letter-spacing:-.5px}
 .hero p.sub{margin:14px auto 30px;opacity:.85;font-size:18px;max-width:640px}
-.brief{background:color-mix(in srgb,var(--color-white) 14%,transparent);backdrop-filter:blur(14px);border:1px solid color-mix(in srgb,var(--color-white) 22%,transparent);border-radius:18px;padding:16px;text-align:left}
-.brief-row{display:flex;gap:10px;align-items:flex-start}
-.brief textarea{flex:1;background:transparent;border:0;outline:0;color:var(--color-white);font-family:inherit;font-size:18px;resize:none;height:76px}
-.brief textarea:focus{background:transparent;box-shadow:none}
-.brief textarea::placeholder{color:color-mix(in srgb,var(--color-white) 75%,transparent)}
-.brief-foot{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:10px;flex-wrap:wrap}
-.div-toggle{display:flex;background:color-mix(in srgb,var(--color-black) 18%,transparent);border-radius:10px;padding:3px}
-.div-toggle button{background:none;border:0;color:var(--color-white);font-family:inherit;font-size:14px;font-weight:600;padding:7px 12px;border-radius:8px;cursor:pointer;opacity:.8}
-.div-toggle button.on{background:var(--color-white);color:var(--color-primary);opacity:1}
-.send{width:42px;height:42px;border-radius:12px;background:var(--color-primary);display:grid;place-items:center;border:0;cursor:pointer;color:var(--color-white)}
-.send:hover{background:var(--color-secondary)}
 
 /* TICKER */
 .ticker{overflow:hidden;padding:26px 0;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
@@ -291,7 +280,6 @@ footer a:hover{color:var(--color-accent)}
 
 /* floating */
 .wa{position:fixed;right:20px;bottom:20px;z-index:60;background:var(--color-whatsapp);color:var(--color-white);border-radius:16px;padding:10px 16px 10px 12px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow-floating)}
-.wa small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.6px;opacity:.9}
 .wa b{font-size:15px}
 .top{position:fixed;left:20px;bottom:20px;z-index:60;width:46px;height:46px;border-radius:12px;background:var(--color-accent);display:grid;place-items:center;border:0;cursor:pointer;opacity:0;pointer-events:none;transition:.3s}
 .top.show{opacity:1;pointer-events:auto}
@@ -333,9 +321,6 @@ footer a:hover{color:var(--color-accent)}
   .hero{min-height:auto;margin-top:10px;border-radius:16px}
   .hero-in{padding:44px 14px 22px}
   .hello{font-size:20px}.hero h1{font-size:27px}.hero p.sub{font-size:15.5px;margin:10px auto 20px}
-  .brief{padding:12px;border-radius:14px}.brief textarea{font-size:16px;height:64px}
-  .brief-foot{gap:8px}.div-toggle{width:100%}.div-toggle button{flex:1;font-size:13px;padding:8px 6px}
-  .brief-foot>div:last-child{width:100%;justify-content:space-between}
   .ticker{padding:16px 0}.track{gap:30px}.track span{font-size:15px}
   .promo{min-height:300px;padding:20px;justify-content:flex-end;gap:14px}
   .promo{background:linear-gradient(0deg,var(--pc) 0%,var(--pc) 48%,color-mix(in srgb,var(--pc) 25%,transparent) 100%),var(--pi) center top/cover;background-color:var(--pc)}
@@ -382,7 +367,6 @@ footer a:hover{color:var(--color-accent)}
 /* Added for accessibility; the default appearance is unchanged. */
 @layer components {
   :where(a, button, [role="button"], select):focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
-  .brief:has(textarea:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: 2px; }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -392,7 +376,7 @@ footer a:hover{color:var(--color-accent)}
     *, *::before, *::after { transition: none !important; }
   }
 
-  /* Client showcase theme selector (not rendered on the public production site). */
+  /* Client showcase theme selector (shown when SHOW_THEME_SELECTOR=true, or in development). */
   .theme-switch{position:fixed;left:20px;bottom:76px;z-index:61;display:flex;flex-direction:column-reverse;align-items:flex-start;gap:8px}
   .theme-toggle,.theme-panel button{font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;border-radius:10px}
   .theme-toggle{background:var(--color-surface);color:var(--color-primary);border:2px solid var(--color-accent);padding:8px 14px;box-shadow:var(--shadow-floating)}

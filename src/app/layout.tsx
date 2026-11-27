@@ -39,11 +39,8 @@ export const viewport: Viewport = {
   themeColor: PRIMARY,
 };
 
-// Theme selector: local development and preview deployments only, never Vercel production.
-// SHOW_THEME_SELECTOR=true enables it for a local production build or another showcase host.
-const showThemeSelector =
-  process.env.VERCEL_ENV !== "production" &&
-  (process.env.NODE_ENV === "development" || process.env.VERCEL_ENV === "preview" || process.env.SHOW_THEME_SELECTOR === "true");
+// Theme selector: always on in `npm run dev`; elsewhere (including Vercel production) only when SHOW_THEME_SELECTOR=true.
+const showThemeSelector = process.env.NODE_ENV === "development" || process.env.SHOW_THEME_SELECTOR === "true";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

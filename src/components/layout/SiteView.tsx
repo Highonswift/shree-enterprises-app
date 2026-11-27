@@ -30,7 +30,7 @@ export function SiteView({ content }: { content: SiteContent }) {
       <Header brand={content.brand} />
       <Tabs labels={ui.tabs} hidden={hiddenTabs} />
       <main className="wrap" id="home">
-        {!content.hero.hidden && <Hero hero={content.hero} phone={content.contact.phones[0] || content.brand.phone} ui={ui} />}
+        {!content.hero.hidden && <Hero hero={content.hero} />}
         {!content.ticker.hidden && <Ticker ticker={content.ticker} />}
         {!content.promos.hidden && <Promos promos={content.promos} />}
         {!content.capabilities.hidden && <Capabilities content={content.capabilities} swipeLabel={ui.swipe} />}
