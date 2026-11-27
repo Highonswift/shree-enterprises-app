@@ -1,0 +1,563 @@
+{
+  "brand": {
+    "name": "Shree",
+    "suffix": "enterprises",
+    "phone": "+91 79045 49689",
+    "ctaLabel": "Start a Project",
+    "pageTitle": "Shree Enterprises | EPC Turnkey Projects & Water Solutions"
+  },
+  "seo": {
+    "description": "Shree Enterprises, Chennai: EPC turnkey fish meal & fish oil plants and complete water & wastewater treatment: ETP, STP, WTP, UF, RO and desalination.",
+    "ogTitle": "Shree Enterprises | EPC Turnkey Projects & Water Solutions",
+    "ogDescription": "Fish meal & fish oil EPC plants and complete water treatment: ETP, STP, WTP, UF, RO and desalination. Chennai.",
+    "ogImage": "/images/automated-stp.jpg"
+  },
+  "hero": {
+    "greeting": "Hey, we're",
+    "greetingHighlight": "Shree",
+    "title": "Your EPC Partner for Fish Meal Plants & Complete Water Treatment",
+    "subtitle": "Practical engineering. Coordinated execution. Responsive support — from feasibility to commissioning and beyond.",
+    "image": "/images/automated-stp.jpg",
+    "promptsEPC": [
+      "Add a biofilter and scrubber for odour control…"
+    ],
+    "promptsWater": []
+  },
+  "ticker": [
+    "Fish Meal Plants",
+    "Fish Oil Purification",
+    "ETP",
+    "STP",
+    "WTP",
+    "Ultrafiltration",
+    "Reverse Osmosis",
+    "Desalination",
+    "Biogas & UASB",
+    "Odour Control",
+    "Heat Recovery",
+    "PLC / SCADA",
+    "Revamping",
+    "AMC & Spares"
+  ],
+  "promos": [
+    {
+      "tag": "EPC Turnkey Projects",
+      "title": "Fish Meal & Fish Oil Plants, Concept to Commissioning",
+      "text": "Process, utilities, effluent treatment, biogas and odour control in one coordinated scope.",
+      "button": "Explore EPC",
+      "link": "#fishmeal",
+      "image": "/images/plant-600tpd.jpg",
+      "color": "var(--color-promo-epc)"
+    },
+    {
+      "tag": "Water & Wastewater",
+      "title": "ETP · STP · WTP · UF · RO · Desalination",
+      "text": "Design, installation, revamping and service support for plants up to 1 MLD.",
+      "button": "Explore Water",
+      "link": "#models",
+      "image": "/images/desal.jpg",
+      "color": "var(--color-promo-water)"
+    }
+  ],
+  "capabilities": {
+    "title": "Our Capabilities",
+    "subtitle": "One integrated partner for multidisciplinary industrial project delivery.",
+    "groups": [
+      {
+        "name": "End-to-End Delivery",
+        "items": [
+          {
+            "number": "01",
+            "title": "Feasibility & DPR",
+            "text": "Process selection, project costing, schedules and techno-economic assessment."
+          },
+          {
+            "number": "02",
+            "title": "Process Engineering",
+            "text": "PFD, P&ID, mass balance, utility balance and technical specifications."
+          },
+          {
+            "number": "03",
+            "title": "Procurement",
+            "text": "Vendor evaluation, technical bid comparison and equipment coordination."
+          },
+          {
+            "number": "04",
+            "title": "Civil & Mechanical",
+            "text": "Foundations, structural steel, piping, fabrication and erection support."
+          },
+          {
+            "number": "05",
+            "title": "Electrical & Automation",
+            "text": "Power distribution, MCC, PLC/SCADA, instruments and interlocks."
+          },
+          {
+            "number": "06",
+            "title": "Start-up & Handover",
+            "text": "Testing, commissioning support, operator training and maintenance planning."
+          }
+        ]
+      },
+      {
+        "name": "Process Equipment",
+        "items": []
+      },
+      {
+        "name": "Steam & Energy",
+        "items": []
+      },
+      {
+        "name": "Wastewater & Recovery",
+        "items": []
+      },
+      {
+        "name": "Odour & Air",
+        "items": []
+      },
+      {
+        "name": "Water Treatment & Service",
+        "items": []
+      }
+    ]
+  },
+  "fishmeal": {
+    "kicker": "EPC Turnkey · Flagship concept",
+    "title": "600 MT/Day Fish Meal & Fish Oil Plant",
+    "text": "Continuous wet processing — raw fish to fish meal, fish oil and soluble concentrate — with steam, energy recovery, wastewater and odour systems engineered around production demand.",
+    "image": "/images/plant-600tpd.jpg",
+    "caption": "Concept visualization only — not an IFC drawing; process routing, capacities and dimensions to be verified. Click to enlarge.",
+    "button": "Discuss your capacity →",
+    "stats": [
+      {
+        "value": "600",
+        "unit": "MT/day",
+        "label": "Conceptual plant layout"
+      },
+      {
+        "value": "10",
+        "unit": "stages",
+        "label": "Integrated process line"
+      },
+      {
+        "value": "3",
+        "unit": "products",
+        "label": "Meal · Oil · Solubles"
+      },
+      {
+        "value": "1",
+        "unit": "partner",
+        "label": "EPC, utilities & environment"
+      }
+    ],
+    "flowTitle": "Process flow",
+    "flow": [
+      "Raw fish reception",
+      "Hogger / conveying",
+      "Steam cooking",
+      "Twin screw press",
+      "Decanter separation",
+      "Oil purification",
+      "Stick-water evaporation",
+      "Rotary disc drying",
+      "Cooling and milling",
+      "Bagging and storage"
+    ]
+  },
+  "models": {
+    "title": "Plant Models",
+    "subtitle": "Compact, automated treatment packages. Final process is selected after water analysis and site assessment.",
+    "note": "Images are AI-generated concept illustrations for presentation; final materials, layout and controls are application-specific.",
+    "button": "Request a configuration",
+    "filters": [
+      "Automated",
+      "FRP Package",
+      "Membrane Skids"
+    ],
+    "items": [
+      {
+        "title": "Integrated STP / ETP with Intelligent Control",
+        "category": "",
+        "tag": "Fully automated",
+        "text": "Modular STP / ETP configurations with membrane polishing, PLC control and online instruments. Final process, equipment and automation are selected after site and water-quality assessment.",
+        "image": "/images/automated-stp.jpg"
+      },
+      {
+        "title": "UF / RO Systems with PLC Control",
+        "category": "",
+        "tag": "Fully automated",
+        "text": "Automatic sequencing, pressure and conductivity monitoring, low-pressure protection and configured cleaning cycles. Instrumentation and interlocks are defined for each installation.",
+        "image": "/images/uf-ro-plc.jpg"
+      },
+      {
+        "title": "Single-package FRP ETP",
+        "category": "",
+        "tag": "Industrial wastewater",
+        "text": "Integrated effluent treatment with equalization, chemical treatment, biological treatment, clarification, filtration and disinfection. Separate UF polishing can be added after media filtration. Process selected after effluent testing.",
+        "image": "/images/frp-etp.jpg"
+      },
+      {
+        "title": "Single-package FRP STP",
+        "category": "",
+        "tag": "Apartments · Hotels",
+        "text": "Integrated sewage treatment with screening, equalization, anoxic and aerobic (MBBR) treatment, clarification and polishing. Separate UF can be integrated before disinfection. For apartments, hotels, institutions and commercial facilities.",
+        "image": "/images/frp-stp.jpg"
+      },
+      {
+        "title": "Single-package FRP WTP",
+        "category": "",
+        "tag": "Surface & process water",
+        "text": "Compact package combining application-specific clarification, filtration, dosing and pumping for surface-water and process-water applications. Final configuration follows water analysis.",
+        "image": "/images/frp-wtp.jpg"
+      },
+      {
+        "title": "Packaged Desalination Plant",
+        "category": "",
+        "tag": "Seawater RO",
+        "text": "Seawater reverse osmosis with pretreatment, high-pressure pumping, membrane separation and control. Intake, product-water conditioning and brine management are engineered for the site.",
+        "image": "/images/desal.jpg"
+      },
+      {
+        "title": "Standalone Ultrafiltration System",
+        "category": "",
+        "tag": "UF skid",
+        "text": "Separate UF skid for suspended-solids removal and membrane-based water polishing, with automatic filtration and backwash sequences. Integrates after PSF / ACF and before RO or disinfection.",
+        "image": "/images/uf-skid.jpg"
+      },
+      {
+        "title": "Standalone Reverse Osmosis System",
+        "category": "",
+        "tag": "RO skid",
+        "text": "Separate RO skid for dissolved-salt reduction with cartridge prefiltration, high-pressure pump and membranes. Feed-water analysis determines pretreatment, recovery, membrane selection and cleaning.",
+        "image": "/images/ro-skid.jpg"
+      }
+    ]
+  },
+  "method": {
+    "title": "How We Execute",
+    "subtitle": "Structured stages for transparent project coordination.",
+    "steps": [
+      {
+        "title": "Discover",
+        "text": "Site visit, production goals and design inputs."
+      },
+      {
+        "title": "Engineer",
+        "text": "Layout, balances, drawings and equipment specifications."
+      },
+      {
+        "title": "Source",
+        "text": "Supplier selection, inspection and logistics planning."
+      },
+      {
+        "title": "Build",
+        "text": "Civil, mechanical, piping and electrical integration."
+      },
+      {
+        "title": "Commission",
+        "text": "Trial runs, controls, utilities and performance checks."
+      },
+      {
+        "title": "Support",
+        "text": "Training, documentation and post-start-up coordination."
+      }
+    ]
+  },
+  "products": {
+    "title": "Products & Equipment",
+    "subtitle": "Pumps, aeration, filtration, membranes, instruments and spares — tap a category to see the range.",
+    "items": [
+      {
+        "name": "Pumps",
+        "image": "/images/pumps.jpg",
+        "items": [
+          "Submersible pump",
+          "Centrifugal pump",
+          "Open-well pump",
+          "Screw pump",
+          "Pressure booster system",
+          "High-pressure pump"
+        ]
+      },
+      {
+        "name": "Air Blowers",
+        "image": "/images/blowers.jpg",
+        "items": [],
+        "missingItemCount": 2
+      },
+      {
+        "name": "Diffusers & Aeration",
+        "image": "/images/diffusers.jpg",
+        "items": [],
+        "missingItemCount": 6
+      },
+      {
+        "name": "Treatment Accessories",
+        "image": "/images/accessories.jpg",
+        "items": [],
+        "missingItemCount": 6
+      },
+      {
+        "name": "Filtration Media",
+        "image": "/images/media.jpg",
+        "items": [],
+        "missingItemCount": 6
+      },
+      {
+        "name": "Sludge Dewatering & Mixing",
+        "image": "/images/dewatering.jpg",
+        "items": [],
+        "missingItemCount": 4
+      },
+      {
+        "name": "Fabrication & Components",
+        "image": "/images/fabrication.jpg",
+        "items": [],
+        "missingItemCount": 6
+      },
+      {
+        "name": "Membranes & Filtration",
+        "image": "/images/membranes.jpg",
+        "items": [],
+        "missingItemCount": 8
+      },
+      {
+        "name": "Instruments & Controls",
+        "image": "/images/instruments.jpg",
+        "items": [],
+        "missingItemCount": 10
+      },
+      {
+        "name": "High-Purity Water Spares",
+        "image": "/images/hp-spares.jpg",
+        "items": [],
+        "missingItemCount": 8
+      }
+    ]
+  },
+  "clients": {
+    "title": "Selected Client Relationships",
+    "subtitle": "Quality in the name. Trust in the relationship.",
+    "filters": [
+      "Residential",
+      "Institutional",
+      "Food & Marine"
+    ],
+    "items": [
+      {
+        "name": "Pristine Acres",
+        "category": "",
+        "sector": "Real estate",
+        "logo": ""
+      },
+      {
+        "name": "DLF Gardencity",
+        "category": "",
+        "sector": "Real estate · OMR",
+        "logo": ""
+      },
+      {
+        "name": "XS Real",
+        "category": "",
+        "sector": "Real estate",
+        "logo": ""
+      },
+      {
+        "name": "AMJ",
+        "category": "",
+        "sector": "Institution",
+        "logo": ""
+      },
+      {
+        "name": "Bhaarath Medical College",
+        "category": "",
+        "sector": "Healthcare · Selaiyur",
+        "logo": ""
+      },
+      {
+        "name": "Suguna Foods",
+        "category": "",
+        "sector": "Food processing",
+        "logo": ""
+      },
+      {
+        "name": "Gurunathan Aqua Products",
+        "category": "",
+        "sector": "Aquaculture",
+        "logo": ""
+      },
+      {
+        "name": "Sanjary / Sanchary Marine",
+        "category": "",
+        "sector": "Marine · Sayalkudi",
+        "logo": ""
+      },
+      {
+        "name": "Marble Valley Foods",
+        "category": "",
+        "sector": "Food processing",
+        "logo": ""
+      },
+      {
+        "name": "Jude Foods India",
+        "category": "",
+        "sector": "Seafood",
+        "logo": ""
+      },
+      {
+        "name": "Jeyam Traders",
+        "category": "",
+        "sector": "Trading",
+        "logo": ""
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "Project enquiry",
+    "title": "Let us discuss your requirements",
+    "formTitle": "Start your next project",
+    "formSubtitle": "Share these inputs for a focused technical and commercial proposal.",
+    "epcEmail": "epcturnkeyprojects.se@gmail.com",
+    "epcNote": "Fish meal & fish oil plants, utilities and environmental systems",
+    "waterEmail": "shreeenterpriseswatercare@gmail.com",
+    "waterNote": "Treatment plants, revamping, maintenance and spares",
+    "person": "E. Selvakumar",
+    "role": "General Manager",
+    "phones": [
+      "+91 79045 49689",
+      "+91 95003 81520"
+    ],
+    "whatsapp": "917904549689",
+    "address": "SK Developers, Tejas Lake View Apartment, No. 5, Manthoppu Street, Siruseri, Chennai",
+    "city": "Siruseri, Chennai",
+    "epcHeading": "EPC Turnkey Projects",
+    "waterHeading": "Water & Wastewater",
+    "officeHeading": "Office"
+  },
+  "form": {
+    "labels": {
+      "division": "Division",
+      "name": "Your name & company",
+      "phone": "Phone / Email",
+      "location": "Site location & available area",
+      "capacity": "Product & production capacity",
+      "scope": "Scope required",
+      "message": "Raw material / wastewater characteristics, utilities, existing plant & target schedule"
+    },
+    "placeholders": {
+      "name": "Name, Company",
+      "phone": "+91 …",
+      "location": "e.g. Tuticorin, 2 acres",
+      "capacity": "e.g. Fish meal, 100 MT/day · or STP 200 KLD"
+    },
+    "divisions": {
+      "epc": "EPC Turnkey Projects",
+      "water": "Water & Wastewater"
+    },
+    "scopes": [
+      "New plant – full EPC",
+      "Design & engineering only",
+      "Equipment supply",
+      "Installation & commissioning",
+      "Revamping / retrofit",
+      "O&M / AMC / spares"
+    ],
+    "submit": "Prepare my enquiry →",
+    "readyTitle": "Your enquiry is ready",
+    "readyBeforeEmail": " — copy it and send it to ",
+    "readyAfterEmail": ", or open it in your mail app.",
+    "copy": "Copy enquiry",
+    "copied": "Copied ✓",
+    "copyFailed": "Select the text above to copy",
+    "openMail": "Open in mail app",
+    "mailSubject": "Project enquiry – ",
+    "body": {
+      "heading": "Project enquiry — ",
+      "name": "Name / Company",
+      "contact": "Contact",
+      "location": "Site location & area",
+      "capacity": "Product & capacity",
+      "scope": "Scope",
+      "details": "Details"
+    },
+    "productScope": "Equipment supply",
+    "productMessage": "Enquiry: "
+  },
+  "footer": {
+    "about": "EPC turnkey projects and water & wastewater solutions — practical, reliable and cost-effective systems for industrial, commercial and residential applications.",
+    "tagline": "Engineering | Procurement | Construction",
+    "disclaimer": "Plant capacity and final configuration are defined through project-specific engineering.",
+    "copyrightName": "Shree Enterprises",
+    "columns": [
+      {
+        "heading": "EPC Turnkey",
+        "links": [
+          {
+            "label": "Fish meal & fish oil plants",
+            "link": "#fishmeal"
+          },
+          {
+            "label": "Steam & heat recovery",
+            "link": "#capabilities"
+          },
+          {
+            "label": "Effluent & biogas",
+            "link": "#capabilities"
+          },
+          {
+            "label": "Odour control",
+            "link": "#capabilities"
+          }
+        ]
+      },
+      {
+        "heading": "Water Solutions",
+        "links": [
+          {
+            "label": "ETP / STP / WTP",
+            "link": "#models"
+          },
+          {
+            "label": "UF / RO / Desalination",
+            "link": "#models"
+          },
+          {
+            "label": "Revamping & O&M",
+            "link": "#capabilities"
+          },
+          {
+            "label": "Equipment & spares",
+            "link": "#products"
+          }
+        ]
+      }
+    ],
+    "contactHeading": "Contact"
+  },
+  "ui": {
+    "tabs": {
+      "home": "Home",
+      "capabilities": "Capabilities",
+      "fishmeal": "Fish Meal EPC",
+      "models": "Plant Models",
+      "execution": "How We Execute",
+      "products": "Products",
+      "clients": "Clients",
+      "contact": "Contact"
+    },
+    "promptFallback": "Describe your project…",
+    "briefLabel": "Describe your project",
+    "divisionEpc": "EPC Turnkey",
+    "divisionWater": "Water & Wastewater",
+    "talk": "Talk to Engineer",
+    "send": "Start enquiry",
+    "swipe": "Swipe for more",
+    "viewDetails": "View details →",
+    "allFilter": "All",
+    "itemsSuffix": "items",
+    "enquireAbout": "Enquire about ",
+    "whatsappSmall": "SHREE CONCIERGE",
+    "whatsappLabel": "Chat on WhatsApp",
+    "backToTop": "Back to top",
+    "close": "Close"
+  }
+}
