@@ -1,6 +1,7 @@
 /*
   Single source of design control: theme tokens first, then the original site's styles.
-  To change the theme, edit only the @theme block.
+  All colour themes live in this file. The @theme block holds the base tokens (Theme 2);
+  each [data-theme] block below it overrides only the colours.
 */
 @layer theme, base, components, utilities;
 
@@ -9,12 +10,13 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 @theme static {
-  /* Midnight Navy & Champagne Gold */
+  /* Theme 2: Midnight Navy & Champagne Gold (base tokens, data-theme="midnight-gold") */
   --color-primary: #071B35;
   --color-secondary: #123B5D;
   --color-accent: #C5A46D;
   --color-background: #F4F1EA;
-  --color-white: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-white: #FFFFFF; /* text and tints on dark or coloured areas */
 
   /* Derived shades */
   --color-primary-deep: #04122A;
@@ -23,7 +25,7 @@
   --color-text: #0A1424;
   --color-text-muted: #5B6478;
   --color-text-on-dark: #CBD3DF;
-  --color-panel: var(--color-white);
+  --color-panel: var(--color-surface);
   --color-input: #FAF8F4;
   --color-chip: #EDE8DC;
   --color-chip-hover: #E2DAC8;
@@ -53,6 +55,54 @@
   --shadow-floating: 0 10px 30px color-mix(in srgb, var(--color-black) 25%, transparent);
   --shadow-ring: 0 0 0 2px var(--color-accent);
   --shadow-focus: 0 0 0 3px var(--color-accent-soft);
+}
+
+/*
+  Alternative themes, applied by data-theme on <html>. Panels, shadows, soft accents and the
+  EPC banner follow automatically from the colours set here.
+*/
+@layer theme {
+  /* Theme 3: Graphite Black & Copper */
+  :root[data-theme="graphite-copper"] {
+    --color-primary: #202124;
+    --color-secondary: #343638;
+    --color-accent: #B87333;
+    --color-background: #F2F0EC;
+    --color-surface: #FFFFFF;
+
+    --color-primary-deep: #141517;
+    --color-accent-text: #86521F;
+    --color-text: #17181A;
+    --color-text-muted: #606266;
+    --color-text-on-dark: #D3D2CF;
+    --color-input: #F9F8F6;
+    --color-chip: #EAE7E1;
+    --color-chip-hover: #DEDAD2;
+    --color-border: #E3DFD8;
+    --color-border-strong: #C9B6A3;
+    --color-promo-water: #5E3A1C;
+  }
+
+  /* Theme 1: Deep Ocean & Aqua Silver (default, set on <html> in layout.tsx) */
+  :root[data-theme="deep-ocean"] {
+    --color-primary: #062B3A;
+    --color-secondary: #0B5263;
+    --color-accent: #78C9CF;
+    --color-background: #EAF3F4;
+    --color-surface: #FFFFFF;
+
+    --color-primary-deep: #031C27;
+    --color-accent-text: #17666D;
+    --color-text: #08212B;
+    --color-text-muted: #4F6670;
+    --color-text-on-dark: #C6DADF;
+    --color-input: #F6FAFB;
+    --color-chip: #DFECEE;
+    --color-chip-hover: #CEE2E5;
+    --color-border: #D5E5E8;
+    --color-border-strong: #A5C8CD;
+    --color-promo-water: #1B5E63;
+  }
 }
 
 /* Original site styles. In a layer so Tailwind utilities can still override them. */
@@ -103,6 +153,7 @@ section[id],main[id]{scroll-margin-top:130px}
 .brief{background:color-mix(in srgb,var(--color-white) 14%,transparent);backdrop-filter:blur(14px);border:1px solid color-mix(in srgb,var(--color-white) 22%,transparent);border-radius:18px;padding:16px;text-align:left}
 .brief-row{display:flex;gap:10px;align-items:flex-start}
 .brief textarea{flex:1;background:transparent;border:0;outline:0;color:var(--color-white);font-family:inherit;font-size:18px;resize:none;height:76px}
+.brief textarea:focus{background:transparent;box-shadow:none}
 .brief textarea::placeholder{color:color-mix(in srgb,var(--color-white) 75%,transparent)}
 .brief-foot{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:10px;flex-wrap:wrap}
 .div-toggle{display:flex;background:color-mix(in srgb,var(--color-black) 18%,transparent);border-radius:10px;padding:3px}
@@ -146,7 +197,7 @@ section[id],main[id]{scroll-margin-top:130px}
 
 /* capability grid */
 .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.cap{border:1px solid var(--color-border);border-radius:var(--r-md);padding:20px;transition:.25s;background:var(--color-white)}
+.cap{border:1px solid var(--color-border);border-radius:var(--r-md);padding:20px;transition:.25s;background:var(--color-surface)}
 .cap:hover{border-color:var(--color-accent);box-shadow:var(--shadow-card-sm);transform:translateY(-2px)}
 .cap .n{font-size:13px;font-weight:700;color:var(--color-accent-text);margin-bottom:6px}
 .cap h4{font-size:19px;color:var(--color-primary);margin-bottom:6px}
@@ -172,7 +223,7 @@ section[id],main[id]{scroll-margin-top:130px}
 
 /* model cards (itinerary style) */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{border:1px solid var(--color-border);border-radius:var(--r-md);overflow:hidden;background:var(--color-white);display:flex;flex-direction:column;transition:.25s;cursor:pointer}
+.card{border:1px solid var(--color-border);border-radius:var(--r-md);overflow:hidden;background:var(--color-surface);display:flex;flex-direction:column;transition:.25s;cursor:pointer}
 .card:hover{box-shadow:var(--shadow-card);transform:translateY(-3px)}
 .card .im{aspect-ratio:3/2;background:var(--color-background) center/cover no-repeat}
 .card .bd{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
@@ -185,13 +236,13 @@ section[id],main[id]{scroll-margin-top:130px}
 .method{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative}
 .method:before{content:"";position:absolute;top:22px;left:8%;right:8%;height:2px;background:repeating-linear-gradient(90deg,var(--color-accent) 0 8px,transparent 8px 14px)}
 .ms{text-align:center;padding:0 8px;position:relative}
-.ms .dot{width:46px;height:46px;border-radius:50%;background:var(--color-primary);color:var(--color-white);font-weight:700;display:grid;place-items:center;margin:0 auto 12px;border:4px solid var(--color-white);box-shadow:var(--shadow-ring)}
+.ms .dot{width:46px;height:46px;border-radius:50%;background:var(--color-primary);color:var(--color-white);font-weight:700;display:grid;place-items:center;margin:0 auto 12px;border:4px solid var(--color-surface);box-shadow:var(--shadow-ring)}
 .ms h5{font-size:17px;color:var(--color-primary)}
 .ms p{font-size:14px;color:var(--color-text-muted)}
 
 /* products */
 .prod-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.prod{border:1px solid var(--color-border);border-radius:var(--r-md);padding:14px;text-align:left;background:var(--color-white);cursor:pointer;font-family:inherit;transition:.2s}
+.prod{border:1px solid var(--color-border);border-radius:var(--r-md);padding:14px;text-align:left;background:var(--color-surface);cursor:pointer;font-family:inherit;transition:.2s}
 .prod:hover,.prod.on{border-color:var(--color-accent);box-shadow:var(--shadow-product)}
 .prod .pi{height:110px;display:grid;place-items:center;margin-bottom:10px}
 .prod .pi img{max-height:110px;object-fit:contain}
@@ -201,7 +252,7 @@ section[id],main[id]{scroll-margin-top:130px}
 .prod-detail.show{display:block}
 .prod-detail h5{color:var(--color-primary);font-size:18px;margin-bottom:10px}
 .pills{display:flex;flex-wrap:wrap;gap:8px}
-.pills span{background:var(--color-white);border:1px solid var(--color-border);border-radius:999px;padding:6px 12px;font-size:14px;font-weight:500;color:var(--color-primary)}
+.pills span{background:var(--color-surface);border:1px solid var(--color-border);border-radius:999px;padding:6px 12px;font-size:14px;font-weight:500;color:var(--color-primary)}
 
 /* clients */
 .clients{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -222,7 +273,7 @@ section[id],main[id]{scroll-margin-top:130px}
 form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 label{display:block;font-size:14px;font-weight:600;color:var(--color-primary);margin-bottom:6px}
 input,select,textarea{width:100%;font-family:inherit;font-size:16px;padding:11px 13px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-input);color:var(--color-text);outline:0;transition:.2s}
-input:focus,select:focus,textarea:focus{border-color:var(--color-accent);background:var(--color-white);box-shadow:var(--shadow-focus)}
+input:focus,select:focus,textarea:focus{border-color:var(--color-accent);background:var(--color-surface);box-shadow:var(--shadow-focus)}
 textarea{min-height:96px;resize:vertical}
 .full{margin-bottom:14px}
 .out{display:none;margin-top:16px;background:var(--color-background);border:1px dashed var(--color-border-strong);border-radius:12px;padding:16px}
@@ -340,6 +391,16 @@ footer a:hover{color:var(--color-accent)}
     .reveal { opacity: 1; transform: none; }
     *, *::before, *::after { transition: none !important; }
   }
+
+  /* Client showcase theme selector (not rendered on the public production site). */
+  .theme-switch{position:fixed;left:20px;bottom:76px;z-index:61;display:flex;flex-direction:column-reverse;align-items:flex-start;gap:8px}
+  .theme-toggle,.theme-panel button{font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;border-radius:10px}
+  .theme-toggle{background:var(--color-surface);color:var(--color-primary);border:2px solid var(--color-accent);padding:8px 14px;box-shadow:var(--shadow-floating)}
+  .theme-panel{display:flex;flex-direction:column;gap:6px;padding:10px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--r-md);box-shadow:var(--shadow-floating);max-width:calc(100vw - 28px)}
+  .theme-panel button{text-align:left;padding:9px 12px;background:var(--color-chip);color:var(--color-primary);border:0}
+  .theme-panel button:hover{background:var(--color-chip-hover)}
+  .theme-panel button[aria-pressed="true"]{background:var(--color-primary);color:var(--color-white)}
+  @media (max-width:640px){.theme-switch{left:14px;bottom:calc(68px + env(safe-area-inset-bottom))}}
 
   /* Keep sections visible when JavaScript is unavailable. */
   @media (scripting: none) {

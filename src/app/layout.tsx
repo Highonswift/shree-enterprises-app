@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow } from "next/font/google";
+import { ThemeSwitcher } from "@/components/common/ThemeSwitcher";
 import { getSite } from "@/lib/storyblok/queries";
 import "./globals.css";
 
@@ -10,9 +11,9 @@ const barlow = Barlow({
   display: "swap",
 });
 
-// Browser chrome and the favicon cannot read CSS variables: keep these equal to --color-primary and --color-accent.
-const PRIMARY = "#071B35";
-const ACCENT = "#C5A46D";
+// Browser chrome and the favicon cannot read CSS variables: keep these equal to the default theme's --color-primary and --color-accent.
+const PRIMARY = "#062B3A";
+const ACCENT = "#78C9CF";
 const favicon = `data:image/svg+xml,${encodeURIComponent(
   `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='${PRIMARY}'/><text x='14' y='46' font-family='Arial' font-weight='800' font-size='40' fill='white'>S</text><rect x='42' y='16' width='8' height='32' rx='2' fill='${ACCENT}'/></svg>`,
 )}`;
@@ -38,10 +39,19 @@ export const viewport: Viewport = {
   themeColor: PRIMARY,
 };
 
+// Theme selector: local development and preview deployments only, never Vercel production.
+// SHOW_THEME_SELECTOR=true enables it for a local production build or another showcase host.
+const showThemeSelector =
+  process.env.VERCEL_ENV !== "production" &&
+  (process.env.NODE_ENV === "development" || process.env.VERCEL_ENV === "preview" || process.env.SHOW_THEME_SELECTOR === "true");
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={barlow.variable} data-scroll-behavior="smooth">
-      <body>{children}</body>
+    <html lang="en" className={barlow.variable} data-theme="deep-ocean" data-scroll-behavior="smooth">
+      <body>
+        {children}
+        {showThemeSelector && <ThemeSwitcher />}
+      </body>
     </html>
   );
 }
