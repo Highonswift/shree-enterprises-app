@@ -65,7 +65,13 @@ The content model is defined in `src/lib/storyblok/components.ts`.
 
 ## Enquiry form
 
-The form only prepares text for the visitor to copy or open in their mail app. Nothing is submitted to a server. The only server routes are `/api/draft` and `/api/revalidate`.
+The form sends through [EmailJS](https://www.emailjs.com/) from the browser; this site has no email API of its own. If sending fails, the visitor can copy the enquiry or open it in their mail app.
+
+1. In EmailJS, add an email service and one template.
+2. In the template, set **To Email** to `rajkumar.bic.2026@gmail.com` (typed in, not a variable), **Reply To** to `{{reply_to}}` and **Subject** to `New Project Enquiry – Shree Enterprises`. The body variables are `from_name`, `company`, `reply_to`, `phone`, `project_type`, `scope`, `capacity`, `location` and `message`.
+3. Set `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` and `NEXT_PUBLIC_EMAILJS_PROJECT_TEMPLATE` in `.env` or `.env.local` (`.env.local` takes priority, even when an entry there is blank), and in the host's settings before building).
+
+The "Open in mail app" address is `FALLBACK_EMAIL` in `src/components/sections/EnquiryForm.tsx`. The form's field checks and 10-second send limit run in the browser and can be bypassed. There is no CAPTCHA.
 
 ## Missing source material
 
