@@ -1,6 +1,6 @@
 # Shree Enterprises website
 
-Next.js (App Router), TypeScript, Tailwind CSS, Lucide and Storyblok. A migration of the original static HTML site; the design is unchanged apart from the colour theme.
+Next.js (App Router), TypeScript, Tailwind CSS and Lucide.
 
 ## Run locally
 
