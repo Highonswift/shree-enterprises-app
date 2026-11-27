@@ -5,7 +5,7 @@
 //   npm run storyblok:setup -- --apply --update-components   also overwrite same-named components
 //
 // It never changes an existing page and never publishes. Needs STORYBLOK_SPACE_ID and
-// STORYBLOK_MANAGEMENT_TOKEN in .env.local (setup only: do not add the management token to Vercel).
+// STORYBLOK_MANAGEMENT_TOKEN in .env.local or .env (setup only: do not add the management token to Vercel).
 import { existsSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
 import { componentDefinitions, storyContent } from "./storyblok-model.ts";
@@ -13,7 +13,8 @@ import { componentDefinitions, storyContent } from "./storyblok-model.ts";
 const apply = process.argv.includes("--apply");
 const updateComponents = process.argv.includes("--update-components");
 const root = join(import.meta.dirname, "..");
-if (existsSync(join(root, ".env.local"))) process.loadEnvFile(join(root, ".env.local"));
+// Same files Next.js reads. Values already loaded win, so .env.local takes priority.
+for (const file of [".env.local", ".env"]) if (existsSync(join(root, file))) process.loadEnvFile(join(root, file));
 
 const content = JSON.parse(readFileSync(join(root, "src/lib/content/site.json"), "utf8"));
 const slug = process.env.STORYBLOK_STORY_SLUG || "site";
@@ -39,7 +40,7 @@ const HOSTS: Record<string, string> = {
 const { STORYBLOK_SPACE_ID: space, STORYBLOK_MANAGEMENT_TOKEN: token } = process.env;
 const host = HOSTS[process.env.STORYBLOK_REGION || "eu"];
 if (!space || !token || !host) {
-  console.error("\nSet STORYBLOK_SPACE_ID, STORYBLOK_MANAGEMENT_TOKEN and a valid STORYBLOK_REGION in .env.local");
+  console.error("\nSet STORYBLOK_SPACE_ID (digits only, no #), STORYBLOK_MANAGEMENT_TOKEN and a valid STORYBLOK_REGION in .env.local or .env");
   process.exit(1);
 }
 

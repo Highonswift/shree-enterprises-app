@@ -31,7 +31,12 @@ export async function fetchStory(version: "draft" | "published"): Promise<Story>
     // Refreshed immediately by the publish webhook, and hourly in case a webhook is missed.
     : { next: { tags: [CACHE_TAG], revalidate: 3600 } });
   // Never include the request URL in errors: it contains the token.
-  if (!response.ok) throw new Error(`Storyblok returned ${response.status} for the ${version} story "${storySlug()}"`);
+  if (!response.ok) {
+    const help = response.status !== 404 ? "" : draft
+      ? ". No page has this slug: run the setup (see README) or check STORYBLOK_STORY_SLUG"
+      : ". The page does not exist or is not published yet: run the setup (see README), then publish it in Storyblok";
+    throw new Error(`Storyblok returned ${response.status} for the ${version} story "${storySlug()}"${help}`);
+  }
   return ((await response.json()) as { story: Story }).story;
 }
 
